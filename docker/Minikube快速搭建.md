@@ -98,7 +98,7 @@ minikube addons list
 minikube addons enable dashboard
 #查看连接
 minikube dashboard --url &
-如果你是Linux环境安装的想要windows看到执行下面命令
+
 kubectl proxy --port=9527 --address='192.168.1.71' --accept-hosts='^.*' &@ 
 #进入minikube虚拟机 root密码应该与宿主机root密码一致（臆测）
 minikube ssh
@@ -120,13 +120,19 @@ minikube addons enable ingress
 
 ```
 
-8.再次启动
+8.如果你是Linux环境安装的想要windows看到执行下面命令
+
+```
+kubectl proxy --port=9527 --address='192.168.1.71' --accept-hosts='^.*' &@
+```
+
+9.再次启动
 
 ```
 minikube start
 ```
 
-9.集群操作
+10.集群操作
 
 ```
 #暂停
