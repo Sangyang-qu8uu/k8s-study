@@ -1,10 +1,21 @@
+ssh keys无需登录设置提交代码
+
+1.生成ssh-key
+
+```
 ssh-keygen -t rsa -C "your_email.com"
-#添加到github的仓库ssh认证SSH keys
-git clone "ssh地址"
+```
 
+2.设置github中ssh认证SSH keys,粘贴id_rsa.pub
 
+```
+下次使用git clone "ssh地址"
+```
+
+3.下面是git的常规操作了
+
+```
 #--------------------------Git提交代码--------------------------
-#参考：https://gitee.com/help/articles/4114#article-header0
 
 #进入项目文件夹，初始化一个Git仓库
 git init 
@@ -18,3 +29,10 @@ git commit -m "项目初始化"
 git push git@github.com:***/**-study.git
 #查看git提交的日志
 git log
+```
+
+
+
+参考地址：
+
+https://gitee.com/help/articles/4114#article-header0
