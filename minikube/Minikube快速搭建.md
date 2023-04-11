@@ -98,8 +98,6 @@ minikube addons list
 minikube addons enable dashboard
 #查看连接
 minikube dashboard --url &
-
-kubectl proxy --port=9527 --address='192.168.1.71' --accept-hosts='^.*' &@ 
 #进入minikube虚拟机 root密码应该与宿主机root密码一致（臆测）
 minikube ssh
 #获取ip
