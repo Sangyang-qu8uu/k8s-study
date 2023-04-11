@@ -26,7 +26,7 @@ git status -s
 #从Git的暂存区提交版本到仓库，参数-m后为当次提交的备注信息
 git commit -m "项目初始化"
 #将本地的Git仓库信息推送上传到服务器
-git push git@github.com:***/**-study.git
+git push git@github.com:yn197/k8s-study.git
 #查看git提交的日志
 git log
 ```
