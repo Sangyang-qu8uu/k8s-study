@@ -67,6 +67,12 @@ docker push 16074yang/flannel:v1
 docker pull 16074yang/flannel:v1
 ```
 
+### 7.查看命令镜像的详细信息
+
+```
+docker image inspect java-demo:v1.0
+```
+
 
 
 ## 二：容器相关

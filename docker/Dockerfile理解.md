@@ -43,7 +43,7 @@ Dockerfile由一行行命令语句组成，并且支持以#开头的注释行。
 |     CMD     |                  指定启动容器时默认的命令 v                  |
 | ENTRYPOINT  |                指定镜像的默认入口.运行命令 v                 |
 |   EXPOSE    |                  声明镜像内服务监听的端口 v                  |
-|     ENV     |       指定环境变量，可以在docker run的时候使用-e改变 v       |
+|     ENV     | 指定环境变量，可以在docker run的时候使用-e改变 v，会被固话到image的config里面 |
 |     ADD     | 复制指定的src路径下的内容到容器中的dest路径下，src可以为url会自动下载，可以为tar文件，会自动解压 |
 |    COPY     | 复制本地主机的src路径下的内容到镜像中的dest路径下，但不会自动解压等 |
 |    LABEL    |                 指定生成镜像的元数据标签信息                 |
