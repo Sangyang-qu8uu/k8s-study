@@ -1,6 +1,6 @@
 # Dockerfile理解
 
-先来执行一个springboot的Dockerfile脚本文件
+**先来执行一个springboot的Dockerfile脚本文件**
 
 ```
 FROM openjdk:8-jdk-slim
@@ -29,7 +29,7 @@ docker run -d -p 8000:8000 -p 9000:9000 --name=portainer --restart=always -v /va
 
 访问:服务器ip+test    Hello, world! 
 
-1.组成
+## 1.组成
 
 Dockerfile由一行行命令语句组成，并且支持以#开头的注释行。一般而言，Dockerfile可以分为四部分
 
@@ -57,7 +57,7 @@ Dockerfile由一行行命令语句组成，并且支持以#开头的注释行。
 |    SHELL    |                指定使用shell时的默认shell类型                |
 |             |                                                              |
 
-2.FROM
+## 2.FROM
 
 FROM 指定基础镜像，最好挑一些apline，slim之类的基础小镜像.
 scratch镜像是一个空镜像，常用于多阶段构建
@@ -66,11 +66,11 @@ Java应用当然是java基础镜像（SpringBoot应用）或者Tomcat基础镜�
 JS模块化应用一般用nodejs基础镜像
 其他各种语言用自己的服务器或者基础环境镜像，如python、golang、java、php等
 
-3.LABEL
+## 3.LABEL
 
 标注镜像的一些说明信息
 
-4.RUN
+## 4.RUN
 
 RUN指令在当前镜像层顶部的新层执行任何命令，并提交结果，生成新的镜像层。
 生成的提交映像将用于Dockerfile中的下一步。 分层运行RUN指令并生成提交符合Docker的核心概
@@ -121,9 +121,9 @@ CMD sleep 10000
 
 
 
-5.CMD和ENTRYPOINT
+## 5.CMD和ENTRYPOINT
 
-0、都可以作为容器启动入口
+### 0、都可以作为容器启动入口
 
 ```
 CMD 的三种写法：
@@ -148,7 +148,8 @@ ENTRYPOINT ["echo"]
 docker run xxxx：效果 echo 1111
 ```
 
-1、只能有一个CMD
+### 1、只能有一个CMD
+
 Dockerfile中只能有一条CMD指令。 如果您列出多个CMD，则只有最后一个CMD才会生效。
 CMD的主要目的是为执行中的容器提供默认值。 这些默认值可以包含可执行文件，也可以省略可
 执行文件，在这种情况下，您还必须指定ENTRYPOINT指令。
@@ -156,7 +157,7 @@ CMD的主要目的是为执行中的容器提供默认值。 这些默认值可�
 如果使用CMD为ENTRYPOINT指令提供默认参数，则CMD和ENTRYPOINT指令均应使用JSON数组格
 式指定。
 
-2、docker run启动参数会覆盖CMD内容
+### 2、docker run启动参数会覆盖CMD内容
 
 ```
 # 一个示例
@@ -169,7 +170,7 @@ docker run xxxx：什么都不传则 echo 1111
 docker run xxx arg1：传入arg1 则echo arg1
 ```
 
-6.ARG和ENV
+## 6.ARG和ENV
 
 ```
 1、ARG
@@ -219,9 +220,9 @@ RUN echo $arg1 $arg2 $runcmd
 CMD echo $arg1 $arg2 $runcmd
 ```
 
-7.ADD和COPY
+## 7.ADD和COPY
 
-1、COPY
+### 1、COPY
 
 COPY的两种写法
 
@@ -250,7 +251,8 @@ COPY --chown=1 files* /somedir/
 COPY --chown=10:11 files* /somedir/
 ```
 
-2、ADD
+### 2、ADD
+
 同COPY用法，不过 ADD拥有自动下载远程文件和解压的功能。
 注意：
 
@@ -260,9 +262,10 @@ COPY --chown=10:11 files* /somedir/
         如果 dest 以斜杠结尾，将自动推断出url的名字（保留最后一部分），保存到 dest
         如果 src 是目录，则将复制目录的整个内容，包括文件系统元数据。
 
-8.WORKDIR和VOLUME
+## 8.WORKDIR和VOLUME
 
-1、WORKDIR
+### 1、WORKDIR
+
 WORKDIR指令为Dockerfile中跟随它的所有 RUN，CMD，ENTRYPOINT，COPY，ADD 指令设置工作目
 录。 如果WORKDIR不存在，即使以后的Dockerfile指令中未使用它也将被创建。
 WORKDIR指令可在Dockerfile中多次使用。 如果提供了相对路径，则它将相对于上一个WORKDIR指
@@ -285,7 +288,7 @@ RUN pwd
 #结果 /path/$DIRNAME
 ```
 
-2、VOLUME
+### 2、VOLUME
 
 作用：把容器的某些文件夹映射到主机外部
 写法:
@@ -296,10 +299,10 @@ VOLUME /var/log  #可以直接写
 VOLUME /var/log /var/db #可以空格分割多个
 ```
 
-注意：
-用 VOLUME 声明了卷，那么以后对于卷内容的修改会被丢弃，所以， 一定在volume声明之前修改内容 ；
+**注意：**
+**用 VOLUME 声明了卷，那么以后对于卷内容的修改会被丢弃，所以， 一定在volume声明之前修改内容 ；**
 
-9.USER
+## 9.USER
 
 写法：
 
@@ -311,7 +314,7 @@ USER <UID>[:<GID>]
 USER指令设置运行映像时要使用的用户名（或UID）以及可选的用户组（或GID），以及Dockerfile
 中USER后面所有RUN，CMD和ENTRYPOINT指令。
 
-10.EXPOSE
+## 10.EXPOSE
 
 EXPOSE指令通知Docker容器在运行时在指定的网络端口上进行侦听。 可以指定端口是侦听TCP还
 是UDP，如果未指定协议，则默认值为TCP。
@@ -328,11 +331,11 @@ EXPOSE 80/tcp
 EXPOSE 80/udp
 ```
 
-11.multi-stage builds
+## 11.multi-stage builds
 
-多阶段构建:
+**多阶段构建:**
 
-1、使用
+### 1、使用
 
 https://docs.docker.com/build/building/multi-stage/
 
@@ -350,7 +353,7 @@ ENTRYPOINT java -jar app.jar
 ## 我们最小做到多大？？
 ```
 
-2、生产示例
+### 2、生产示例
 
 ```
 #以下所有前提 保证Dockerfile和项目在同一个文件夹 
@@ -405,7 +408,7 @@ ENTRYPOINT [ "sh", "-c", "java -Djava.security.egd=file:/dev/./urandom $JAVA_OPT
   </pluginRepositories>
 ```
 
-Images瘦身实践
+## Images瘦身实践
 
 选择最小的基础镜像
 合并RUN环节的所有指令，少生成一些层

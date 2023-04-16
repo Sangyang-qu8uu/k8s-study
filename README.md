@@ -1,2 +1,7 @@
 # k8s-study
-k8s学习笔记
+1.常使用linux安装命令ifconfig
+
+```
+sudo apt install net-tools
+```
+
