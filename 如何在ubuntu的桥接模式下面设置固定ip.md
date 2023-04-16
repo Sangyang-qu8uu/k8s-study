@@ -6,11 +6,11 @@
 
 
 
-![](D:\总结文档\零碎的整理面试资料\k8s\ubuntu设置静态ip\2.png)
+![]([D:\总结文档\零碎的整理面试资料\k8s\ubuntu设置静态ip\2.png](https://github.com/yn197/k8s-study/blob/main/pic/default_netplan.png))
 
 ## 2.查看宿主机的网关地址待会要用到
 
-![](D:\总结文档\零碎的整理面试资料\k8s\ubuntu设置静态ip\微信图片_20230416155639.png)
+![]([D:\总结文档\零碎的整理面试资料\k8s\ubuntu设置静态ip\微信图片_20230416155639.png](https://github.com/yn197/k8s-study/blob/main/pic/gataway_address.png))
 
 
 
