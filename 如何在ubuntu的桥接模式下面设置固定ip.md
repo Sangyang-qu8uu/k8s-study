@@ -6,11 +6,11 @@
 
 
 
-![default_netplan.png]( [default_netplan.png (519×119) (raw.githubusercontent.com)](https://raw.githubusercontent.com/yn197/k8s-study/main/pic/default_netplan.png)  )
+![default_netplan.png]( https://github.com/yn197/k8s-study/blob/c469883b888349e2234101f8eca42d410a5ee95d/pic/default_netplan.png )
 
 ## 2.查看宿主机的网关地址待会要用到
 
-![gataway_address.png]( [gataway_address.png (1013×489) (raw.githubusercontent.com)](https://raw.githubusercontent.com/yn197/k8s-study/main/pic/gataway_address.png)  )
+![gataway_address.png]( https://github.com/yn197/k8s-study/blob/c469883b888349e2234101f8eca42d410a5ee95d/pic/gataway_address.png )
 
 
 
