@@ -272,3 +272,22 @@ spec:
 ```
 
 **NodePort范围在 30000-32767 之间** 
+
+6.Ingress 
+
+1.安装 
+
+```
+wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/baremetal/deploy.yaml
+
+#修改镜像
+vi deploy.yaml
+#将image的值改为如下值：
+registry.cn-hangzhou.aliyuncs.com/lfy_k8s_images/ingress-nginx-controller:v0.46.0
+
+# 检查安装的结果
+kubectl get pod,svc -n ingress-nginx
+
+# 最后别忘记把svc暴露的端口要放行
+```
+
