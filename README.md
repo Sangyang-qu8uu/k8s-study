@@ -5,3 +5,9 @@
 sudo apt install net-tools
 ```
 
+2.windows刷新hosts
+
+```
+ipconfig /displaydns
+```
+
