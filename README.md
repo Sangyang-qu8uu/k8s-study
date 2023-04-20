@@ -11,3 +11,9 @@ sudo apt install net-tools
 ipconfig /displaydns
 ```
 
+3.安装ping命令
+
+```
+apt install -y inetutils-ping
+```
+
