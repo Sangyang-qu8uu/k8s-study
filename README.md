@@ -17,3 +17,10 @@ ipconfig /displaydns
 apt install -y inetutils-ping
 ```
 
+4.安装netstat
+
+```
+apt install net-tools
+netstat -nlpt|grep 80
+```
+
