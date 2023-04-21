@@ -175,3 +175,16 @@ roleRef:
 kubectl get sc
 ```
 
+5.从节点 
+
+```
+showmount -e 172.31.0.4
+
+#执行以下命令挂载 nfs 服务器上的共享目录到本机路径 /root/nfsmount
+mkdir -p /nfs/data
+
+mount -t nfs 172.31.0.4:/nfs/data /nfs/data
+# 写入一个测试文件
+echo "hello nfs server" > /nfs/data/test.txt
+```
+
