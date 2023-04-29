@@ -73,6 +73,12 @@ git lfs track "*.exe"
 git add .gitattributes
 ```
 
+4.5添加要上传（push）的文件 
+
+```sh
+git add *.exe
+```
+
 
 
 参考地址：
