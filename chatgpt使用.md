@@ -38,4 +38,4 @@ wsl --update
 
 ## 5.最后可以愉快的使用了
 
-![](pic\chatgpt使用.png)
+![](pic\chatgpt使用图.png)
