@@ -22,7 +22,7 @@ docker run  -e PANDORA_CLOUD=cloud -e PANDORA_SERVER=0.0.0.0:8899 -p 8899:8899 
 
 windows安装docker Desktop使用此命令可能报错
 
-![](pic\Docker Desktop.png)
+![](pic/Docker Desktop.png)
 
 执行一下
 
@@ -38,4 +38,4 @@ wsl --update
 
 ## 5.最后可以愉快的使用了
 
-![](pic\chatgpt使用图.png)
+![](pic/chatgpt使用图.png)
