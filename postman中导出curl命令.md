@@ -4,15 +4,15 @@
 
 https://curl.haxx.se/windows/
 
-![](pic\curl下载地址.png)
+![curl下载地址.png](pic\curl下载地址.png)
 
 ## 2.环境变量
 
-![](pic\curl_home.png)
+![curl_home.png](pic\curl_home.png)
 
 ## 3.postman导出curl
 
-![](H:\k8s-study\pic\curl.png)
+![curl.png](pic\curl.png)
 
 命令:
 
