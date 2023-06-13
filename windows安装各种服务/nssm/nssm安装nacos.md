@@ -26,6 +26,6 @@ nssm install nacos
 
 ![windows打开服务.png](../../pic/windows打开服务.png)
 
-## 4**.打开localhost:8848/nacos** 
+## 4.打开localhost:8848/nacos 
 
 ![nacos启动.png](../../pic/nacos启动.png)
