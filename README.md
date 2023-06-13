@@ -1,4 +1,4 @@
-# k8s-study
+# k8s-study以及运维相关学习
 1.常使用linux安装命令ifconfig
 
 ```
@@ -30,5 +30,11 @@ netstat -nlpt|grep 80
 netstat -ano|findstr "端口号"
 tasklist|findstr "PID号"   
 taskkill /f /t /im 端口号
+```
+
+6.安装rz或者sz命令
+
+```
+apt install lrzsz
 ```
 
