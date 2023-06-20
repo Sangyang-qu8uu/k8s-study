@@ -6,11 +6,11 @@
 
 
 
-![default_netplan.png](pic/default_netplan.png)
+![default_netplan.png](./pic/default_netplan.png)
 
 ## 2.查看宿主机的网关地址待会要用到
 
-![gataway_address.png](pic/gataway_address.png)
+![gataway_address.png](./pic/gataway_address.png)
 
 
 
