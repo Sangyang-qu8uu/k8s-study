@@ -80,6 +80,15 @@ sudo systemctl restart docker
 
 初始账号密码 Account: admin Password: Harbor12345 
 
+5.登录报错
+
+````
+Error response from daemon: login attempt to http://192.168.1.184:30002/v2/ failed with status: 502 Bad Gateway
+
+````
+
+
+
 ## 5.尝试推送镜像
 
 ```sh

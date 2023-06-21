@@ -11,6 +11,8 @@ yum install -y nfs-utils
 echo "/nfs/data/ *(insecure,rw,sync,no_root_squash)" > /etc/exports
 
 
+echo "/nfs/data/ *(rw,sync,no_subtree_check)" > /etc/exports
+
 # 执行以下命令，启动 nfs 服务;创建共享目录
 mkdir -p /nfs/data
 
@@ -28,6 +30,70 @@ exportfs -r
 #检查配置是否生效
 exportfs
 ```
+
+ubuntu
+
+```
+sudo apt-get update
+sudo apt-get install -y nfs-kernel-server
+
+
+sudo mkdir -p /nfs/data
+sudo chmod 777 /nfs/data
+
+
+/nfs/data *(rw,sync,no_subtree_check)
+
+sudo systemctl restart nfs-kernel-server
+
+
+sudo showmount -e localhost
+
+apt install nfs-common -y
+#1.写一个脚本到/etc/init.d/  名字叫nfs.sh
+#!/bin/bash
+# 在这里编写你的启动脚本命令
+mount -t nfs 192.168.1.18:/nfs/data /nfs/data
+#2.将脚本文件移动到 /etc/init.d/ 目录：使用以下命令将脚本文件移动到系统的启动脚本目录
+sudo mv nfs.sh /etc/init.d/
+#3.添加执行权限：使用以下命令为脚本文件添加执行权限。
+sudo chmod +x /etc/init.d/myscript.sh
+#4.更新启动脚本：运行以下命令以更新系统的启动脚本。
+sudo update-rc.d nfs.sh defaults
+
+
+```
+
+
+
+额外补充删除开机自启动脚本
+
+```
+#运行以下命令以删除启动脚本：
+sudo update-rc.d -f <script_name> remove
+
+将 <script_name> 替换为你要删除的脚本文件的名称。
+
+例如，如果要删除名为 myscript.sh 的脚本文件，运行以下命令：
+
+sudo update-rc.d -f myscript.sh remove
+
+验证脚本是否已成功删除：你可以使用以下命令检查脚本是否已从启动脚本中删除：
+
+ls /etc/init.d/ | grep <script_name>
+
+
+```
+
+
+
+修改默认存储
+
+````
+kubectl edit storageclass <storage_class_name>
+````
+
+
 
 2.配置nfs-client（选做） 
 

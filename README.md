@@ -38,3 +38,10 @@ taskkill /f /t /im 端口号
 apt install lrzsz
 ```
 
+7.删除或者建立软连接
+
+```
+**unlink link_name**
+sudo ln -s ~/startup.sh /etc/init.d/startup
+```
+
