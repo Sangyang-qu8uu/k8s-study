@@ -58,7 +58,7 @@ chmod +x kk
 如果创建过程提示少什么就安装什么
 sudo apt install conntrack
 # debian/ubuntu
-apt-get install socat
+sudo apt-get install socat
  
 # centos/redhat
 yum install -y socat

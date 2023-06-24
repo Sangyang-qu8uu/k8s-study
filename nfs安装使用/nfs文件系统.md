@@ -41,10 +41,12 @@ sudo apt-get install -y nfs-kernel-server
 sudo mkdir -p /nfs/data
 sudo chmod 777 /nfs/data
 
+# 在master 执行以下命令 
+echo "/nfs/data *(rw,sync,no_subtree_check)" > /etc/exports
 
-/nfs/data *(rw,sync,no_subtree_check)
 
 sudo systemctl restart nfs-kernel-server
+sudo systemctl enable nfs-kernel-server
 
 
 sudo showmount -e localhost
@@ -105,7 +107,7 @@ mkdir -p /nfs/data
 mount -t nfs 172.31.0.4:/nfs/data /nfs/data
 ```
 
-3.配置默认存储
+3.配置默认存储nfs-storage
 
 ```
 ## 创建了一个存储类
