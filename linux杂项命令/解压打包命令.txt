@@ -1,0 +1,8 @@
+1.在ubuntu中使用apt-get安装Zip
+sudo apt-get update
+sudo apt-get install zip
+2.解压缩zip源码包
+unzip xxx.zip
+3.打包
+zip [参数] [压缩包名] [文件/文件夹路径]
+zip -r myfolder.zip myfolder
