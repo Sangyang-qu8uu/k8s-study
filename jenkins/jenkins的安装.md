@@ -44,9 +44,9 @@ Workspace
 
 maven
 
-![](..\pic\maven.png)
+![](../pic/maven.png)
 
-![maven2](..\pic\maven2.png)
+![maven2](../pic/maven2.png)
 
 ```
 /usr/local/apache-maven-3.8.2/conf/settings.xml
@@ -75,7 +75,7 @@ jdk
 
 
 
-![](..\pic\jdk.png)
+![](../pic/jdk.png)
 
 nodejs
 
@@ -85,7 +85,7 @@ nodejs
 
 
 
-![](..\pic\nodejs.png)
+![](../pic/nodejs.png)
 
 
 
@@ -93,7 +93,7 @@ ssh服务器
 
 
 
-![](..\pic\ssh服务地址.png)
+![](../pic/ssh服务地址.png)
 
 
 
