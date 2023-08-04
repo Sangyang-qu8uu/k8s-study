@@ -190,6 +190,10 @@ http {
 
 参考链接:
 
+https://www.yuque.com/leifengyang/oncloud/vgf9wk
+
 [docker+jenkins+gitee+shell 自动化部署微服务（基于若依）【详细完整版】_jenkins 若依微服务_菠萝仔丨叶的博客-CSDN博客](https://blog.csdn.net/qq_40966238/article/details/128113539) 
 
 [Jenkins + SpringCloud（多模块）+ Vue系统详细构建配置 - 三石破天 - 博客园 (cnblogs.com)](https://www.cnblogs.com/hardrockwu/p/16638974.html) 
+
+[Jenkins利用nodejs插件实现vue项目构建（若依前端） – 染卷'blog (ranjuan.cn)](https://ranjuan.cn/jenkins-nodejs-build/) 
