@@ -29,6 +29,14 @@ nohup java -jar jenkins.war --httpPort=9527 > /dev/null 2>&1 &
 
 ## 5.安装插件
 
+安装前先切换下国内站点
+
+```sh
+https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json
+```
+
+安装的插件
+
 ```
 Maven Integration 
 Locale
