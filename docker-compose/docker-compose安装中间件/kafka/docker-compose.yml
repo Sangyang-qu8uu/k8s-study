@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  zookeeper:
+    image: '16074yang/zookeeper'
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+      
+  kafka1:
+    image: '16074yang/kafka'
+    container_name: kafka1
+    ports:
+      - "9692:9692"
+    environment:
+      KAFKA_BROKER_ID: 101
+      KAFKA_ZOOKEEPER_CONNECT: 192.168.1.205:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.1.205:9692
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9692
+      TZ: "Asia/Shanghai"
+
+  kafka2:
+    image: '16074yang/kafka'
+    container_name: kafka2
+    ports:
+      - "9693:9693"
+    environment:
+      KAFKA_BROKER_ID: 102
+      KAFKA_ZOOKEEPER_CONNECT: 192.168.1.205:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.1.205:9693
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9693
+      TZ: "Asia/Shanghai"
+
+  kafka-map:
+    image: '16074yang/kafka-map'
+    container_name: kafka-map
+    ports:
+      - "8689:8080"
+    environment:
+      DEFAULT_USERNAME: admin
+      DEFAULT_PASSWORD: admin
+  
