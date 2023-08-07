@@ -152,3 +152,12 @@ docker cp 5eff66eec7e1:/etc/nginx/nginx.conf  /data/conf/nginx.conf
 docker cp  /data/conf/nginx.conf  5eff66eec7e1:/etc/nginx/nginx.conf
 ```
 
+### 8.怎么将正在运行的容器做成镜像
+
+```
+# 将容器打包成镜像的命令，:TAG可有可无
+docker commit -m="commit信息" -a="作者名" 容器ID 你的镜像名:TAG
+docker commit -m="rabbitmq3.8" -a="16074yang" 51be02bab1bc 16074yang/rabbitmq:v3.8
+```
+
+![](../pic/docker_rabbitmq_images.png)

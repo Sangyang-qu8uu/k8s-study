@@ -1,0 +1,21 @@
+version: '3'
+services:
+  rabbitmq:
+    image: 16074yang/rabbitmq:v3.8
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - /usr/local/rabbitmq/data:/var/lib/rabbitmq
+      - /usr/local/rabbitmq/log:/var/log/rabbitmq
+    networks:
+        - rabbitmq_go_net
+
+networks:
+  rabbitmq_go_net:
+    driver: bridge
+

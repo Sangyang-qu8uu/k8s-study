@@ -1,0 +1,49 @@
+version: "3"
+services:
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    ports:
+      - "3381:3306"
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1 
+    environment:
+      MYSQL_ROOT_PASSWORD: "freeghugfysvxhj" 
+    volumes:
+      - /root/docker-compose-service/mysql/data:/var/lib/mysql
+      - /root/docker-compose-service/mysql/conf/my.cnf:/etc/my.cnf
+   
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - "6397:6379"
+    volumes:
+      - /root/docker-compose-service/redis/data:/var/lib/redis/data
+      - /root/docker-compose-service/redis/redis.conf:/usr/local/etc/redis/redis.conf   
+    
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - "82:80"
+      - "443:443"
+    volumes:
+    ##需要在/root/docker-compose-service/nginx/conf.d添加一个default.conf的文件，再重启
+      - /root/docker-compose-service/nginx/conf.d:/etc/nginx/conf.d
+      - /root/docker-compose-service/nginx/log:/var/log/nginx
+      - /root/docker-compose-service/nginx/www:/etc/nginx/html
+      - /root/docker-compose-service/nginx/etc/letsencrypt:/etc/letsencrypt

@@ -32,3 +32,28 @@ curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://f1361db2
 
 
 
+5.报错
+
+```
+/usr/local/bin/docker-compose: line 1: html: No such file or directory
+/usr/local/bin/docker-compose: line 2: syntax error near unexpected token `<'
+'usr/local/bin/docker-compose: line 2: `<head><title>502 Bad Gateway</title></head>
+
+```
+
+使用下面的命令解决
+
+```
+curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
+```
+
+```
+ chmod +x /usr/local/bin/docker-compose
+```
+
+最后查看版本
+
+![](../pic/docker_compose_install.png)
+
+
+

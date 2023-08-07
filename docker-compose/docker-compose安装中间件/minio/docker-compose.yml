@@ -1,0 +1,15 @@
+version: '3.1'
+services: 
+    minio:
+      image: minio/minio
+      container_name: minio
+      restart: always
+      ports:
+        - 9839:9839
+      command: server /data  #指定容器中的目录 /data
+      environment:
+        MINIO_ACCESS_KEY: minio    #管理后台用户名
+        MINIO_SECRET_KEY: lnjjzzzpotjrefx #管理后台密码，最小8个字符
+      volumes:
+        - ./data:/data              #映射当前目录下的data目录至容器内/data目录
+        - ./config:/root/.minio/     #映射配置目录

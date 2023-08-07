@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  nexus:
+    image: sonatype/nexus3
+    container_name: nexus
+    ports:
+      - 8281:8081
+    volumes:
+      - ./nexus-data:/nexus-data
+    restart: always
+#如果遇到失败的情况，查看日志解决方式是文件夹权限不够,chmod -R 777 nexus-data/，再重启
+
+

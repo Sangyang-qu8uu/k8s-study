@@ -1,0 +1,44 @@
+#mkdir -p /usr/local/elasticsearch/data;
+#mkdir -p /usr/local/elasticsearch/config;
+#mkdir -p /usr/local/elasticsearch/plugins;
+#chmod -R 777 /usr/local/elasticsearch/*;
+version: '3'
+networks:
+  es:
+services:
+  elasticsearch:
+    image: elasticsearch:7.8.0             # 容器名为'elasticsearch'
+    restart: unless-stopped                           # 指定容器退出后的重启策略为始终重启，但是不考虑在Docker守护进程启动时就已经停止了的容器
+    volumes:                                  # 数据卷挂载路径设置,将本机目录映射到容器目录
+      - /usr/local/elasticsearch/data:/usr/share/elasticsearch/data
+      - /usr/local/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - /usr/local/elasticsearch/plugins:/usr/share/elasticsearch/plugins
+    environment:                              # 设置环境变量,相当于docker run命令中的-e
+      TZ: Asia/Shanghai
+      LANG: en_US.UTF-8
+      discovery.type: single-node
+      ES_JAVA_OPTS: "-Xmx2048m -Xms2048m"
+      ELASTIC_PASSWORD: "sviszqiwzunupal" # elastic账号密码
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - es
+ 
+  kibana:
+    image: kibana:7.8.0
+    container_name: kibana
+    restart: unless-stopped
+    environment:
+      - "ELASTICSEARCH_HOSTS=http://elasticsearch:9200"
+      - "ELASTICSEARCH_USERNAME=elastic"
+      - "ELASTICSEARCH_PASSWORD=sviszqiwzunupal"
+
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    links:
+      - elasticsearch
+    networks:
+      - es
