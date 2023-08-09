@@ -12,13 +12,13 @@ openpitrix:
 
 访问控制-创建企业空间-进入项目创建项目
 
-![](../pic/harbor应用商店.png)
+![](../../../pic/harbor应用商店.png)
 
 一直点击下一步
 
 
 
-![](../pic/harbor2.png)
+![](../../../pic/harbor2.png)
 
 
 
@@ -101,7 +101,7 @@ docker push 192.168.1.10:30002/library/kubernetesui/dashboard:v2.5.0
 
 推送过程
 
-![](../pic/harbor推送.png)
+![](../../../pic/harbor推送.png)
 
 
 

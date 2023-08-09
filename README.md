@@ -1,47 +1,18 @@
 # k8s-study以及运维相关学习
-1.常使用linux安装命令ifconfig
+
+## 1.项目目的
+
+旨在平时工作之余的时间自我的一个k8s运维方面知识总结，以及小技巧的总结
+
+## 2.文件夹大致内容
 
 ```
-sudo apt install net-tools
+CiCd工具，主要是关于Jenkins，Gitlab，sanorqb集成流水化项目，以及对于代码进行质量检查
+Docker相关学习,包括docker安装，入门命令，Dockerfile,Docker-compose编写
+K8s,主要是安装，多个可视化工具，以及组件
+linux，目前是常用的命令，我记性不太好，不想重复的百度
+nginx,单独拎出来我觉得这个学习的地方很多
+其他,主要是生活小技巧
 ```
 
-2.windows刷新hosts
-
-```
-ipconfig /displaydns
-```
-
-3.安装ping命令
-
-```
-apt install -y inetutils-ping
-```
-
-4.安装netstat
-
-```
-apt install net-tools
-netstat -nlpt|grep 80
-```
-
-5.如何杀掉windows的指定进程
-
-```
-netstat -ano|findstr "端口号"
-tasklist|findstr "PID号"   
-taskkill /f /t /im 端口号
-```
-
-6.安装rz或者sz命令
-
-```
-apt install lrzsz
-```
-
-7.删除或者建立软连接
-
-```
-**unlink link_name**
-sudo ln -s ~/startup.sh /etc/init.d/startup
-```
-
+## 3.目前只写到这，后续再完善补充

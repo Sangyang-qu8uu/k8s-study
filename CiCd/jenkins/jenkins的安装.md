@@ -8,7 +8,7 @@ https://www.jenkins.io/
 
 注意不同版本的对于jdk
 
-![jenkins_jdk](../pic/jenkins_jdk.png)
+![jenkins_jdk](../../pic/jenkins_jdk.png)
 
 ## 2.创建文件夹放置war包
 
@@ -52,9 +52,9 @@ Workspace
 
 maven
 
-![](../pic/maven.png)
+![](../../pic/maven.png)
 
-![maven2](../pic/maven2.png)
+![maven2](../../pic/maven2.png)
 
 ```
 /usr/local/apache-maven-3.8.2/conf/settings.xml
@@ -83,7 +83,7 @@ jdk
 
 
 
-![](../pic/jdk.png)
+![](../../pic/jdk.png)
 
 nodejs
 
@@ -93,7 +93,7 @@ nodejs
 
 
 
-![](../pic/nodejs.png)
+![](../../pic/nodejs.png)
 
 
 
@@ -101,7 +101,7 @@ ssh服务器
 
 
 
-![](../pic/ssh服务地址.png)
+![](../../pic/ssh服务地址.png)
 
 
 

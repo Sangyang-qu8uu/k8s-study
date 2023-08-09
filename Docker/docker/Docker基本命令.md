@@ -160,4 +160,4 @@ docker commit -m="commit信息" -a="作者名" 容器ID 你的镜像名:TAG
 docker commit -m="rabbitmq3.8" -a="16074yang" 51be02bab1bc 16074yang/rabbitmq:v3.8
 ```
 
-![](../pic/docker_rabbitmq_images.png)
+![](../../pic/docker_rabbitmq_images.png)

@@ -18,7 +18,7 @@ nginx
 
 ## 2.代码仓库gitlab上传好前后端项目
 
-![](../pic/gitlab项目地址.png)
+![](../../pic/gitlab项目地址.png)
 
 后端:
 
@@ -93,39 +93,39 @@ tar -zxvf ****.tar.gz
 
 源码管理
 
-![](../pic/jenkins-parent3.png)
+![](../../pic/jenkins-parent3.png)
 
 
 
 Build 
 
-![](../pic/jenkins-parent-pre_steps.png)
+![](../../pic/jenkins-parent-pre_steps.png)
 
 ### 4.2新建子模块的ruoyi-gateway任务,其余的类似
 
 build
 
-![](../pic/jenkins-ruoyi-gateway构建.png)
+![](../../pic/jenkins-ruoyi-gateway构建.png)
 
 ssh远程配置
 
-![](../pic/jenkins-gateway-ssh.png)
+![](../../pic/jenkins-gateway-ssh.png)
 
 ### 4.3配置前端
 
 源码管理
 
-![](../pic/ruoyi-ui-code.png)
+![](../../pic/ruoyi-ui-code.png)
 
 build steps
 
-![](../pic/ruoyi_ui_build_steps.png)
+![](../../pic/ruoyi_ui_build_steps.png)
 
 
 
 ssh
 
-![](../pic/ruoyi-ui-ssh.png)
+![](../../pic/ruoyi-ui-ssh.png)
 
 ## 5.安装nginx并且配置
 
@@ -172,19 +172,19 @@ http {
 
 ## 6.最终效果
 
-![](../pic/ruoyi-cloud-jenkins.png)
+![](../../pic/ruoyi-cloud-jenkins.png)
 
 
 
-![](../pic/nacos服务.png)
+![](../../pic/nacos服务.png)
 
 
 
-![](../pic/项目效果图.png)
+![](../../pic/项目效果图.png)
 
 
 
-![](../pic/项目效果图2.png)
+![](../../pic/项目效果图2.png)
 
 
 
