@@ -73,10 +73,41 @@ git lfs track "*.exe"
 git add .gitattributes
 ```
 
-4.5添加要上传（push）的文件 
+### 4.5添加要上传（push）的文件 
 
 ```sh
 git add *.exe
+```
+
+### 4.6 其他补充(突然有一天连接不上了)
+
+ssh: connect to host github.com port 22: Connection timed out
+
+```
+测试试下是否还可连接
+ssh -T git@github.com  
+否则
+cd ~/.ssh
+创建一个config文件
+内容如下
+```
+
+config
+
+```
+Host github.com
+User 注册github的邮箱
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+
+```
+
+执行命令回车即可
+
+```
+ssh -T git@github.com
 ```
 
 
