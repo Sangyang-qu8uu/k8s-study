@@ -110,6 +110,31 @@ Port 443
 ssh -T git@github.com
 ```
 
+4.7push文件报错
+
+```
+To xxxx项目
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'xxxx项目.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details
+```
+
+
+
+```
+git pull --rebase origin main
+```
+
+再执行
+
+```
+git push -u origin main
+```
+
 
 
 参考地址：
@@ -117,3 +142,5 @@ ssh -T git@github.com
 https://gitee.com/help/articles/4114#article-header0
 
 [如何在GitHub上传大文件（≥100M）_github大文件_weixin_45405814的博客-CSDN博客](https://blog.csdn.net/weixin_45405814/article/details/107080156) 
+
+[Git在push推送的时候报错：Donehint: not have locally. This is usually caused by another repository pushinghi_铁血码农-小何的博客-CSDN博客](https://blog.csdn.net/hzyhhhwc/article/details/125655397) 
