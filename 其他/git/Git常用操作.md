@@ -14,6 +14,13 @@ ssh-keygen -t rsa -C "your_email.com"
 
 ## 3.下面是git的常规操作了
 
+### 3.0配置自己的用户名和邮箱
+
+```shell
+git config --global user.name "你的名字或昵称"
+git config --global user.email "你的邮箱"
+```
+
 ### 3.1进入项目文件夹，初始化一个Git仓库
 
 ```
@@ -40,8 +47,10 @@ git commit -m "项目初始化"
 
 ### 3.5将本地的Git仓库信息推送上传到服务器
 
-```
+```shell
 git push git@github.com:yn197/k8s-study.git
+#一般不建议
+git push origin master -f 表示舍弃线上的文件，强制推送
 ```
 
 ### 3.6查看git提交的日志
