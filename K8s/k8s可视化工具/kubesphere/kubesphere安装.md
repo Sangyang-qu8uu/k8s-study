@@ -226,3 +226,45 @@ spec:
         tolerations: []
 ```
 
+11.删除节点
+
+```
+##删除节点
+./kk delete node <nodeName> -f config-sample.yaml
+./kk delete node node3 -f config-sample.yaml
+
+##有可能还会有node是not ready状态的节点,直接剔除k8s的node信息，然后就可以恢复正常了
+kubectl delete nodes node3  
+```
+
+12.添加节点
+
+修改配置文件
+
+```
+···
+spec:
+  hosts:
+  - {name: master1, address: 192.168.0.3, internalAddress: 192.168.0.3, user: root, password: Qcloud@123}
+  - {name: node1, address: 192.168.0.4, internalAddress: 192.168.0.4, user: root, password: Qcloud@123}
+  - {name: node2, address: 192.168.0.5, internalAddress: 192.168.0.5, user: root, password: Qcloud@123}
+  roleGroups:
+    etcd:
+    - master1
+    master:
+    - master1
+    worker:
+    - node1
+    - node2
+···
+
+```
+
+
+
+```
+##添加节点
+./kk add nodes -f sample.yaml
+
+```
+
