@@ -50,3 +50,16 @@ ls  /dev/tty*
 sh *.sh  >/dev/null 2>&1 &
 ```
 
+8.查看服务器的cpu核数
+
+```
+##1.使用 nproc 命令：
+nproc
+##2.使用 lscpu 命令
+lscpu
+##3.使用 cat 命令读取 /proc/cpuinfo 文件
+cat /proc/cpuinfo | grep "processor" | wc -l
+
+这些命令将返回系统中可用的逻辑核心数。如果您想获取物理核心数，通常可以在 lscpu 的输出中查找 "Core(s) per socket" 或类似的行。不过，需要注意的是，如果您的处理器支持超线程（同时运行多个线程在同一个核心上），逻辑核心数可能会比物理核心数多。
+```
+
