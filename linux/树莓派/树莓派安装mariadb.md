@@ -81,3 +81,20 @@ Warning: World-writable config file '/etc/mysql/mariadb.conf.d/50-server.cnf' is
 sudo chmod 644 50-server.cnf
 ```
 
+5.服务器自启动
+
+```
+ sudo systemctl enable mariadb
+```
+
+6.补充命令
+
+```
+sudo systemctl status mariadb
+sudo systemctl restart mariadb
+sudo systemctl start mariadb
+sudo systemctl stop mariadb
+##卸载服务
+sudo apt-get autoremove --purge mariadb-server 
+```
+
