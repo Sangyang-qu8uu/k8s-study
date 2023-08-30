@@ -63,3 +63,10 @@ cat /proc/cpuinfo | grep "processor" | wc -l
 这些命令将返回系统中可用的逻辑核心数。如果您想获取物理核心数，通常可以在 lscpu 的输出中查找 "Core(s) per socket" 或类似的行。不过，需要注意的是，如果您的处理器支持超线程（同时运行多个线程在同一个核心上），逻辑核心数可能会比物理核心数多。
 ```
 
+9添加用户
+
+```
+useradd -m <username>
+passwd <username>
+```
+
