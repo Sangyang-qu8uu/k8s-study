@@ -318,7 +318,7 @@ kubectl get pod -n ingress-nginx
 kubectl get secret -A | grep ingress-nginx
 ```
 
-![](..\pic\snipaste_20230422_180117.png)
+![](../pic/snipaste_20230422_180117.png)
 
 6.3命令行修改方式
 
@@ -327,7 +327,7 @@ kubectl get secret -A | grep ingress-nginx
 kubectl edit deployment ingress-nginx-controller -n ingress-nginx
 ```
 
-![](..\pic\admin-token.png)
+![](../pic/admin-token.png)
 
 6.4查看状态已经可以了 
 
@@ -335,13 +335,13 @@ kubectl edit deployment ingress-nginx-controller -n ingress-nginx
 kubectl get pod -n ingress-nginx
 ```
 
-![](..\pic\true.png)
+![](../pic/true.png)
 
 
 
 6.5或者界面进行修改也是可以的
 
-![](..\pic\dashboard.png)
+![](../pic/dashboard.png)
 
 6.6验证
 
@@ -349,7 +349,7 @@ kubectl get pod -n ingress-nginx
 kubectl get svc -A
 ```
 
-![](..\pic\ingress-port.png)
+![](../pic/ingress-port.png)
 
 
 
