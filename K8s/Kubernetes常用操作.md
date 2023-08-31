@@ -106,7 +106,15 @@ curl 10.244.1.27:8080
 
 4.Deployment 
 
-1.控制Pod，使Pod拥有多副本，自愈，扩缩容等能力 
+4.0进入pod
+
+```
+kubectl exec -ti pod名字 -n kubesphere-system -- /bin/sh
+```
+
+
+
+4.1.控制Pod，使Pod拥有多副本，自愈，扩缩容等能力 
 
 ```
 # 清除所有Pod，比较下面两个命令有何不同效果？
