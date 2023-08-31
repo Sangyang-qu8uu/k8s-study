@@ -70,3 +70,15 @@ useradd -m <username>
 passwd <username>
 ```
 
+10.给文件夹赋予相应权限
+
+在root用户登录的情况，赋予opt目录给XX这个用户权限 示例代码：
+
+```
+# 将目录/opt 及其下面的所有文件、子目录的文件主改成 liuhai
+chown -R ruoyi:ruoyi /usr/local/java
+#给目录opt设置权限
+chmod 760 /usr/local/java
+
+```
+
