@@ -427,3 +427,19 @@ subversion \
 使用 .dockerignore 文件，排除上下文中无需参与构建的资源
 使用多阶段构建
 合理使用构建缓存加速构建。--no-cache
+
+## 12.额外补充
+
+如何通过镜像查看Dockerfile的制作
+
+```
+docker pull alpine/dfimage
+docker pull alpine/dfimage
+alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm alpine/dfimage"
+dfimage java-demo:v1.0(镜像id)
+dfimage java-demo:v1.0 >demo.text  (输出到指定的文件上面)
+```
+
+
+
+![](../../pic/DockerFile_逆向.png)
