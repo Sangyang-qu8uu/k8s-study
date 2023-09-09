@@ -442,4 +442,4 @@ dfimage java-demo:v1.0 >demo.text  (输出到指定的文件上面)
 
 
 
-![](../../pic/DockerFile_逆向.png)
+![](..\..\pic\DockerFile_逆向.png)
