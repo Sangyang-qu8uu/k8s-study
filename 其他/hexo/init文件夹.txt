@@ -1,0 +1,21 @@
+
+`-----------
+
+|  +-- .deploy      #hexo deploy生成的文件
+
+|  +-- node_modules  #npm组件
+
+|  +-- public        #生成的静态网页文件
+
+|  +--scaffolds      #模板
+
+|  +-- source        #博客正文和其他源文件
+
+|  |  +-- _posts    #我们自己写的文章以md结尾
+
+|  +-- themes        #主题
+
+|  +-- _config.yml  #全局配置文件
+
+|  `-- package.json  #定义了hexo所需要的各种模块
+
