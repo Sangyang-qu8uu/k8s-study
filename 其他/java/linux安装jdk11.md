@@ -77,3 +77,19 @@ deb https://mirrors.tuna.tsinghua.edu.cn/debian-security bullseye-security main 
 
 ```
 
+还有可能源报错no public key
+
+```
+原因
+
+在sources.list文件中加入了非ubuntu官方源，所以加入的源是被验证为不可信任的。
+
+解决方法
+
+导入该源公钥。E084DAB9为上图中公钥后八位
+
+gpg --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+
+gpg --export --armor E084DAB9 | sudo apt-key add -
+```
+

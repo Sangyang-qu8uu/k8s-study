@@ -82,3 +82,9 @@ chmod 760 /usr/local/java
 
 ```
 
+11.将前端dist打包
+
+```
+zip -r dist.zip dist/
+zip -r /path/to/output/example_folder.zip /path/to/input/example_folder
+```
