@@ -88,3 +88,11 @@ chmod 760 /usr/local/java
 zip -r dist.zip dist/
 zip -r /path/to/output/example_folder.zip /path/to/input/example_folder
 ```
+
+12.追加命令
+
+```sh
+echo "127.0.0.1 9b63314f-8bef-4eda-997b-70b996049626" | sudo tee -a /etc/hosts
+
+```
+
