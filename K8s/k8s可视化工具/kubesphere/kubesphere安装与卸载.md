@@ -268,3 +268,9 @@ spec:
 
 ```
 
+13.卸载kubesphere
+
+```
+./kubesphere-delete.sh
+```
+
