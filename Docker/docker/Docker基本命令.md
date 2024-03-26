@@ -118,6 +118,8 @@ gitlab/gitlab-ce:8.16.7-ce.0
 docker stop 容器名/容器ID
 ```
 
+> 停止所有的容器: docker stop $(docker ps -aq)
+
 ### 4.删除容器
 
 ````
