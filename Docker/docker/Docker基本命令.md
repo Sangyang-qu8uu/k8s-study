@@ -140,6 +140,9 @@ docker rm -f 容器名/容器ID
 docker rm -f 容器名/容器ID 容器名/容器ID 容器名/容器ID
 #删除全部容器
 docker rm -f $(docker ps -aq)
+#删除死掉的容器
+docker rm $(docker ps -a -q -f status=exited)
+
 ````
 
 ### 5.进入容器
