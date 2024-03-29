@@ -29,7 +29,7 @@ docker rmi -f $(docker images -aq)
 
 `悬空镜像` 这些镜像似乎是未被标记（tagged）或没有名称的镜像，通常被称为“悬空镜像”（dangling images）。这些镜像可能是由于构建镜像过程中的中间层，或者由于重新构建镜像时产生的。您可以使用以下命令删除这些悬空镜像
 
-docker rmi $(docker images -f "dangling=true" -q)
+docker rmi -f $(docker images -f "dangling=true" -q)   #加强制
 如果您只想删除特定的悬空镜像，可以首先列出它们，然后使用 docker rmi 命令删除它们。您可以使用以下命令列出所有悬空镜像：
 
 docker images -f "dangling=true"
