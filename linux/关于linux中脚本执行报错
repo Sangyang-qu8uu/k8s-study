@@ -2,7 +2,14 @@
 [root@h06 psf-xxljob-admin]# ./application.sh start
 -bash: ./application.sh：/bin/bash^M：解释器错误: 没有那个文件或目录
 执行
-```
-sed -i 's/\r$//' application.sh
-```
+方法一
 
+sed -i 's/\r$//' application.sh
+
+
+方法二
+
+
+vi application.sh
+:set ff=unix
+:wq
