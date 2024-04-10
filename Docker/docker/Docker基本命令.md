@@ -27,6 +27,17 @@ docker rmi -f 镜像名/镜像ID
 docker rmi -f $(docker images -aq)
 ```
 
+`悬空镜像` 这些镜像似乎是未被标记（tagged）或没有名称的镜像，通常被称为“悬空镜像”（dangling images）。这些镜像可能是由于构建镜像过程中的中间层，或者由于重新构建镜像时产生的。您可以使用以下命令删除这些悬空镜像
+
+docker rmi -f $(docker images -f "dangling=true" -q)   #加强制
+如果您只想删除特定的悬空镜像，可以首先列出它们，然后使用 docker rmi 命令删除它们。您可以使用以下命令列出所有悬空镜像：
+
+docker images -f "dangling=true"
+然后，您可以使用 docker rmi 命令删除特定的悬空镜像。例如：
+
+docker rmi ae3216c23a37 e5bbbd13b4b9 4a9f3de9f8f2
+
+
 ### 4.保存镜像
 
 将我们的镜像 保存为tar 压缩文件 这样方便镜像转移和保存 ,然后 可以在任何一台安装了docker的服务器上 加载这个镜像 
@@ -129,6 +140,9 @@ docker rm -f 容器名/容器ID
 docker rm -f 容器名/容器ID 容器名/容器ID 容器名/容器ID
 #删除全部容器
 docker rm -f $(docker ps -aq)
+#删除死掉的容器
+docker rm $(docker ps -a -q -f status=exited)
+
 ````
 
 ### 5.进入容器
