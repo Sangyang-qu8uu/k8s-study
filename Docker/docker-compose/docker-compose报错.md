@@ -13,3 +13,4 @@ library initialization failed - unable to allocate file descriptor table - out o
 >
 > systemctl restart docker
 
+参考:https://www.cnblogs.com/iyiluo/p/16785601.html
