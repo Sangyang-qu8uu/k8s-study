@@ -93,3 +93,32 @@ gpg --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 gpg --export --armor E084DAB9 | sudo apt-key add -
 ```
 
+## 3.离线安装
+
+先卸载本机的jdk安装包
+
+```
+yum -y remove java-1.8.0*
+yum -y remove java-11*
+
+```
+
+从官网下载适合的jdk11版本
+
+配置环境变量
+
+````
+#JAVA_HOME
+export JAVA_HOME=/usr/local/jdk11
+CLASSPATH=.:$JAVA_HOME/lib.tools.jar
+PATH=$JAVA_HOME/bin:$PATH
+export JAVA_HOME CLASSPATH PATH
+
+````
+
+source一下
+
+````
+source /etc/profile
+````
+
