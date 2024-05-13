@@ -2,7 +2,7 @@
 
 >
 >
->scoop——强大的Windows命令行包管理工具
+>scoop——强大的Windows命令行包管理工具 官网：https://scoop.sh/
 
 ## 1.打开 PowerShell
 
