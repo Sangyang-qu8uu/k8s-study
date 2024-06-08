@@ -1,0 +1,23 @@
+services:
+  openresty:
+    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    image: 1panel/openresty:1.21.4.3-3-1-focal
+    labels:
+      createdBy: Apps
+    network_mode: host
+    restart: always
+    volumes:
+      - ./conf/nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf
+      - ./conf/fastcgi_params:/usr/local/openresty/nginx/conf/fastcgi_params
+      - ./conf/fastcgi-php.conf:/usr/local/openresty/nginx/conf/fastcgi-php.conf
+      - ./log:/var/log/nginx
+      - ./conf/conf.d:/usr/local/openresty/nginx/conf/conf.d/
+      - ./www:/www
+      - ./root:/usr/share/nginx/html
+      - /etc/localtime:/etc/localtime
+      - ./1pwaf/data:/usr/local/openresty/1pwaf/data

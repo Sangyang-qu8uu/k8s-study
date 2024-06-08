@@ -1,15 +1,37 @@
-version: '3.1'
-services: 
-    minio:
-      image: minio/minio
-      container_name: minio
-      restart: always
-      ports:
-        - 9839:9839
-      command: server /data  #指定容器中的目录 /data
-      environment:
-        MINIO_ACCESS_KEY: minio    #管理后台用户名
-        MINIO_SECRET_KEY: lnjjzzzpotjrefx #管理后台密码，最小8个字符
-      volumes:
-        - ./data:/data              #映射当前目录下的data目录至容器内/data目录
-        - ./config:/root/.minio/     #映射配置目录
+networks:
+  1panel-network:
+    external: true
+services:
+  minio:
+    command: server /data --console-address :9001 --address :9000
+    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    environment:
+      MINIO_BROWSER: ${MINIO_BROWSER}
+      MINIO_BROWSER_LOGIN_ANIMATION: ${MINIO_BROWSER_LOGIN_ANIMATION}
+      MINIO_BROWSER_REDIRECT_URL: http://127.0.0.1:9001
+      MINIO_BROWSER_SESSION_DURATION: ${MINIO_BROWSER_SESSION_DURATION}
+      MINIO_ROOT_PASSWORD: ${PANEL_MINIO_ROOT_PASSWORD}
+      MINIO_ROOT_USER: ${PANEL_MINIO_ROOT_USER}
+      MINIO_SERVER_URL: http://127.0.0.1:9000
+    image: minio/minio:RELEASE.2024-05-10T01-41-38Z
+    labels:
+      createdBy: Apps
+    logging:
+      driver: json-file
+      options:
+        max-file: "10"
+        max-size: 5M
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:9001
+      - ${PANEL_APP_PORT_API}:9000
+    restart: always
+    volumes:
+      - ./data:/data
+      - ./certs:/root/.minio/certs

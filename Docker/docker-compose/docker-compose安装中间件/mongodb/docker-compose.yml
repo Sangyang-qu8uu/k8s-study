@@ -1,0 +1,24 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  mongodb:
+    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    environment:
+      MONGO_INITDB_ROOT_PASSWORD: ${PANEL_DB_ROOT_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: ${PANEL_DB_ROOT_USER}
+    image: mongo:7.0.11
+    labels:
+      createdBy: Apps
+    networks:
+      - 1panel-network
+    ports:
+      - ${HOST_IP}:${PANEL_APP_PORT_HTTP}:27017
+    restart: always
+    volumes:
+      - ./data:/data/db

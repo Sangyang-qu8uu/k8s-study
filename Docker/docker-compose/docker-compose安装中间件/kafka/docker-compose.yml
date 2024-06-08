@@ -6,7 +6,7 @@ services:
     container_name: zookeeper
     ports:
       - "2181:2181"
-      
+
   kafka1:
     image: '16074yang/kafka'
     container_name: kafka1
@@ -14,8 +14,8 @@ services:
       - "9692:9692"
     environment:
       KAFKA_BROKER_ID: 101
-      KAFKA_ZOOKEEPER_CONNECT: 192.168.1.205:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.1.205:9692
+      KAFKA_ZOOKEEPER_CONNECT: ${HOST_IP}:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://${HOST_IP}:9692
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9692
       TZ: "Asia/Shanghai"
 
@@ -26,8 +26,8 @@ services:
       - "9693:9693"
     environment:
       KAFKA_BROKER_ID: 102
-      KAFKA_ZOOKEEPER_CONNECT: 192.168.1.205:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://192.168.1.205:9693
+      KAFKA_ZOOKEEPER_CONNECT: ${HOST_IP}:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://${HOST_IP}:9693
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9693
       TZ: "Asia/Shanghai"
 
@@ -39,4 +39,3 @@ services:
     environment:
       DEFAULT_USERNAME: admin
       DEFAULT_PASSWORD: admin
-  

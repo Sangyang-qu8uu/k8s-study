@@ -1,0 +1,161 @@
+2024/06/08 02:35:43 [notice] 1#1: [lua] config.lua:112: ini_waf_info(): Load 1Panel WAF Version:1.0.0
+2024/06/08 02:35:43 [error] 1#1: [lua] db.lua:141: init(): init waf_stat status0
+2024/06/08 02:35:43 [error] 1#1: [lua] db.lua:175: init(): init req_logs status0
+2024/06/08 02:35:43 [error] 1#1: [lua] db.lua:188: init(): init block_ip status0
+2024/06/08 02:35:43 [notice] 1#1: using the "epoll" event method
+2024/06/08 02:35:43 [notice] 1#1: openresty/1.21.4.3
+2024/06/08 02:35:43 [notice] 1#1: built by gcc 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
+2024/06/08 02:35:43 [notice] 1#1: OS: Linux 5.4.0-182-generic
+2024/06/08 02:35:43 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/06/08 02:35:43 [notice] 1#1: start worker processes
+2024/06/08 02:35:43 [notice] 1#1: start worker process 7
+2024/06/08 02:35:43 [notice] 1#1: start worker process 8
+2024/06/08 02:35:43 [notice] 1#1: start worker process 9
+2024/06/08 02:35:43 [notice] 1#1: start worker process 10
+2024/06/08 02:35:43 [notice] 1#1: start worker process 11
+2024/06/08 02:35:43 [notice] 1#1: start worker process 12
+2024/06/08 12:31:25 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/06/08 12:31:25 [notice] 11#11: gracefully shutting down
+2024/06/08 12:31:25 [notice] 10#10: gracefully shutting down
+2024/06/08 12:31:25 [notice] 8#8: gracefully shutting down
+2024/06/08 12:31:25 [notice] 9#9: gracefully shutting down
+2024/06/08 12:31:25 [notice] 12#12: gracefully shutting down
+2024/06/08 12:31:25 [notice] 7#7: gracefully shutting down
+2024/06/08 12:31:25 [notice] 10#10: exiting
+2024/06/08 12:31:25 [notice] 11#11: exiting
+2024/06/08 12:31:25 [notice] 8#8: exiting
+2024/06/08 12:31:25 [notice] 9#9: exiting
+2024/06/08 12:31:25 [notice] 12#12: exiting
+2024/06/08 12:31:25 [notice] 10#10: exit
+2024/06/08 12:31:25 [notice] 9#9: exit
+2024/06/08 12:31:25 [notice] 11#11: exit
+2024/06/08 12:31:25 [notice] 8#8: exit
+2024/06/08 12:31:25 [notice] 12#12: exit
+2024/06/08 12:31:25 [notice] 1#1: signal 17 (SIGCHLD) received from 9
+2024/06/08 12:31:25 [notice] 1#1: worker process 9 exited with code 0
+2024/06/08 12:31:25 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:31:25 [notice] 1#1: signal 17 (SIGCHLD) received from 8
+2024/06/08 12:31:25 [notice] 1#1: worker process 8 exited with code 0
+2024/06/08 12:31:25 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:31:25 [notice] 1#1: signal 17 (SIGCHLD) received from 11
+2024/06/08 12:31:25 [notice] 1#1: worker process 11 exited with code 0
+2024/06/08 12:31:25 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:31:25 [notice] 1#1: signal 17 (SIGCHLD) received from 10
+2024/06/08 12:31:25 [notice] 1#1: worker process 10 exited with code 0
+2024/06/08 12:31:25 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:31:25 [notice] 1#1: signal 17 (SIGCHLD) received from 12
+2024/06/08 12:31:25 [notice] 1#1: worker process 12 exited with code 0
+2024/06/08 12:31:25 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:31:30 [notice] 7#7: exiting
+2024/06/08 12:31:30 [notice] 7#7: exit
+2024/06/08 12:31:30 [notice] 1#1: signal 17 (SIGCHLD) received from 7
+2024/06/08 12:31:30 [notice] 1#1: worker process 7 exited with code 0
+2024/06/08 12:31:30 [notice] 1#1: exit
+2024/06/08 12:31:36 [notice] 1#1: [lua] config.lua:112: ini_waf_info(): Load 1Panel WAF Version:1.0.0
+2024/06/08 12:31:36 [notice] 1#1: using the "epoll" event method
+2024/06/08 12:31:36 [notice] 1#1: openresty/1.21.4.3
+2024/06/08 12:31:36 [notice] 1#1: built by gcc 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
+2024/06/08 12:31:36 [notice] 1#1: OS: Linux 5.4.0-182-generic
+2024/06/08 12:31:36 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/06/08 12:31:36 [notice] 1#1: start worker processes
+2024/06/08 12:31:36 [notice] 1#1: start worker process 7
+2024/06/08 12:31:36 [notice] 1#1: start worker process 8
+2024/06/08 12:31:36 [notice] 1#1: start worker process 9
+2024/06/08 12:31:36 [notice] 1#1: start worker process 10
+2024/06/08 12:31:36 [notice] 1#1: start worker process 11
+2024/06/08 12:31:36 [notice] 1#1: start worker process 12
+2024/06/08 12:32:48 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/06/08 12:32:48 [notice] 9#9: gracefully shutting down
+2024/06/08 12:32:48 [notice] 8#8: gracefully shutting down
+2024/06/08 12:32:48 [notice] 9#9: exiting
+2024/06/08 12:32:48 [notice] 8#8: exiting
+2024/06/08 12:32:48 [notice] 9#9: exit
+2024/06/08 12:32:48 [notice] 8#8: exit
+2024/06/08 12:32:48 [notice] 7#7: gracefully shutting down
+2024/06/08 12:32:48 [notice] 11#11: gracefully shutting down
+2024/06/08 12:32:48 [notice] 12#12: gracefully shutting down
+2024/06/08 12:32:48 [notice] 11#11: exiting
+2024/06/08 12:32:48 [notice] 12#12: exiting
+2024/06/08 12:32:48 [notice] 10#10: gracefully shutting down
+2024/06/08 12:32:48 [notice] 10#10: exiting
+2024/06/08 12:32:48 [notice] 12#12: exit
+2024/06/08 12:32:48 [notice] 11#11: exit
+2024/06/08 12:32:48 [notice] 10#10: exit
+2024/06/08 12:32:48 [notice] 1#1: signal 17 (SIGCHLD) received from 12
+2024/06/08 12:32:48 [notice] 1#1: worker process 8 exited with code 0
+2024/06/08 12:32:48 [notice] 1#1: worker process 9 exited with code 0
+2024/06/08 12:32:48 [notice] 1#1: worker process 11 exited with code 0
+2024/06/08 12:32:48 [notice] 1#1: worker process 12 exited with code 0
+2024/06/08 12:32:48 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:32:48 [notice] 1#1: signal 17 (SIGCHLD) received from 10
+2024/06/08 12:32:48 [notice] 1#1: worker process 10 exited with code 0
+2024/06/08 12:32:48 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:32:53 [notice] 7#7: exiting
+2024/06/08 12:32:53 [notice] 7#7: exit
+2024/06/08 12:32:53 [notice] 1#1: signal 17 (SIGCHLD) received from 7
+2024/06/08 12:32:53 [notice] 1#1: worker process 7 exited with code 0
+2024/06/08 12:32:53 [notice] 1#1: exit
+2024/06/08 12:33:50 [notice] 1#1: [lua] config.lua:112: ini_waf_info(): Load 1Panel WAF Version:1.0.0
+2024/06/08 12:33:50 [notice] 1#1: using the "epoll" event method
+2024/06/08 12:33:50 [notice] 1#1: openresty/1.21.4.3
+2024/06/08 12:33:50 [notice] 1#1: built by gcc 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
+2024/06/08 12:33:50 [notice] 1#1: OS: Linux 5.4.0-182-generic
+2024/06/08 12:33:50 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/06/08 12:33:50 [notice] 1#1: start worker processes
+2024/06/08 12:33:50 [notice] 1#1: start worker process 7
+2024/06/08 12:33:50 [notice] 1#1: start worker process 8
+2024/06/08 12:33:50 [notice] 1#1: start worker process 9
+2024/06/08 12:33:50 [notice] 1#1: start worker process 10
+2024/06/08 12:33:50 [notice] 1#1: start worker process 11
+2024/06/08 12:33:50 [notice] 1#1: start worker process 12
+2024/06/08 12:35:47 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/06/08 12:35:47 [notice] 9#9: gracefully shutting down
+2024/06/08 12:35:47 [notice] 9#9: exiting
+2024/06/08 12:35:47 [notice] 8#8: gracefully shutting down
+2024/06/08 12:35:47 [notice] 8#8: exiting
+2024/06/08 12:35:47 [notice] 9#9: exit
+2024/06/08 12:35:47 [notice] 8#8: exit
+2024/06/08 12:35:47 [notice] 11#11: gracefully shutting down
+2024/06/08 12:35:47 [notice] 10#10: gracefully shutting down
+2024/06/08 12:35:47 [notice] 11#11: exiting
+2024/06/08 12:35:47 [notice] 10#10: exiting
+2024/06/08 12:35:47 [notice] 11#11: exit
+2024/06/08 12:35:47 [notice] 10#10: exit
+2024/06/08 12:35:47 [notice] 12#12: gracefully shutting down
+2024/06/08 12:35:47 [notice] 12#12: exiting
+2024/06/08 12:35:47 [notice] 12#12: exit
+2024/06/08 12:35:47 [notice] 7#7: gracefully shutting down
+2024/06/08 12:35:47 [notice] 1#1: signal 17 (SIGCHLD) received from 8
+2024/06/08 12:35:47 [notice] 1#1: worker process 8 exited with code 0
+2024/06/08 12:35:47 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:35:47 [notice] 1#1: signal 17 (SIGCHLD) received from 10
+2024/06/08 12:35:47 [notice] 1#1: worker process 10 exited with code 0
+2024/06/08 12:35:47 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:35:47 [notice] 1#1: signal 17 (SIGCHLD) received from 9
+2024/06/08 12:35:47 [notice] 1#1: worker process 9 exited with code 0
+2024/06/08 12:35:47 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:35:47 [notice] 1#1: signal 17 (SIGCHLD) received from 11
+2024/06/08 12:35:47 [notice] 1#1: worker process 11 exited with code 0
+2024/06/08 12:35:47 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:35:47 [notice] 1#1: signal 17 (SIGCHLD) received from 12
+2024/06/08 12:35:47 [notice] 1#1: worker process 12 exited with code 0
+2024/06/08 12:35:47 [notice] 1#1: signal 29 (SIGIO) received
+2024/06/08 12:35:52 [notice] 7#7: exiting
+2024/06/08 12:35:52 [notice] 7#7: exit
+2024/06/08 12:35:52 [notice] 1#1: signal 17 (SIGCHLD) received from 7
+2024/06/08 12:35:52 [notice] 1#1: worker process 7 exited with code 0
+2024/06/08 12:35:52 [notice] 1#1: exit
+2024/06/08 12:35:57 [notice] 1#1: [lua] config.lua:112: ini_waf_info(): Load 1Panel WAF Version:1.0.0
+2024/06/08 12:35:57 [notice] 1#1: using the "epoll" event method
+2024/06/08 12:35:57 [notice] 1#1: openresty/1.21.4.3
+2024/06/08 12:35:57 [notice] 1#1: built by gcc 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2) 
+2024/06/08 12:35:57 [notice] 1#1: OS: Linux 5.4.0-182-generic
+2024/06/08 12:35:57 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/06/08 12:35:57 [notice] 1#1: start worker processes
+2024/06/08 12:35:57 [notice] 1#1: start worker process 6
+2024/06/08 12:35:57 [notice] 1#1: start worker process 7
+2024/06/08 12:35:57 [notice] 1#1: start worker process 8
+2024/06/08 12:35:57 [notice] 1#1: start worker process 9
+2024/06/08 12:35:57 [notice] 1#1: start worker process 10
+2024/06/08 12:35:57 [notice] 1#1: start worker process 11
+2024/06/08 13:50:04 [error] 6#6: *5904 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 192.168.89.1, server: _, request: "GET /favicon.ico HTTP/1.1", host: "192.168.89.129:81", referrer: "http://192.168.89.129:81/"

@@ -1,0 +1,29 @@
+networks:
+  1panel-network:
+    external: true
+services:
+  redis:
+    command: |
+      sh -c ' if [ -z "${PANEL_REDIS_ROOT_PASSWORD}" ]; then
+        redis-server /etc/redis/redis.conf
+      else
+        redis-server /etc/redis/redis.conf --requirepass ${PANEL_REDIS_ROOT_PASSWORD}
+      fi'
+    container_name: ${CONTAINER_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPUS}
+          memory: ${MEMORY_LIMIT}
+    image: redis:7.2.5
+    labels:
+      createdBy: Apps
+    networks:
+      - 1panel-network
+    ports:
+      - ${PANEL_APP_PORT_HTTP}:6379
+    restart: always
+    volumes:
+      - ./data:/data
+      - ./conf/redis.conf:/etc/redis/redis.conf
+      - ./logs:/logs
