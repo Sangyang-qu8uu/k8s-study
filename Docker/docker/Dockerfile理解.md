@@ -170,6 +170,18 @@ docker run xxxx：什么都不传则 echo 1111
 docker run xxx arg1：传入arg1 则echo arg1
 ```
 
+
+
+>
+>
+>总结起来 `CMD`和 `ENTRYPOINT` 有几处不同之处
+>
+>​	1.CMD为镜像提供默认值，且这个默认值会被容器启动时候覆盖掉，ENTRYPOINT则是拼接
+>
+>​	2.CMD指令。 如果您列出多个CMD，则只有最后一个CMD才会生效
+>
+>​	3.ENTRYPOINT: 用于指定固定的命令，启动容器时一般不被覆盖，除非显式使用 --entrypoint 参数。
+
 ## 6.ARG和ENV
 
 ```
@@ -258,9 +270,9 @@ COPY --chown=10:11 files* /somedir/
 
 ​        src 路径必须在构建的上下文中； 不能使用 ../something /something 这种方式，因为docker
 构建的第一步是将上下文目录（和子目录）发送到docker守护程序。
-        如果 src 是URL，并且 dest 不以斜杠结尾，则从URL下载文件并将其复制到 dest 。
-        如果 dest 以斜杠结尾，将自动推断出url的名字（保留最后一部分），保存到 dest
-        如果 src 是目录，则将复制目录的整个内容，包括文件系统元数据。
+​        如果 src 是URL，并且 dest 不以斜杠结尾，则从URL下载文件并将其复制到 dest 。
+​        如果 dest 以斜杠结尾，将自动推断出url的名字（保留最后一部分），保存到 dest
+​        如果 src 是目录，则将复制目录的整个内容，包括文件系统元数据。
 
 ## 8.WORKDIR和VOLUME
 
