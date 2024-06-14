@@ -25,5 +25,5 @@ def generate_tree_structure(startpath):
     tree(startpath)
 
 # 使用方法
-startpath = 'H:/k8s-study/Docker/docker-compose'  # 替换为你要生成树形结构的文件夹路径
+startpath = 'H:/k8s-study'  # 替换为你要生成树形结构的文件夹路径
 generate_tree_structure(startpath)

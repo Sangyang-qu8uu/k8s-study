@@ -123,7 +123,41 @@ gitlab/gitlab-ce:8.16.7-ce.0
 --name 给要运行的容器 起的名字
 ```
 
-### 3.停止容器
+**docker 资源配额** 
+
+Docker 通过 cgroup 来控制容器使用的资源限制，可以对 docker 限制的资源包括 CPU、内存、磁盘
+
+查看配置份额的帮助命令
+
+```sh
+docker run --help | grep cpu-shares
+#指定 docker10 只能在 cpu0 和 cpu1 上运行，而且 docker10 的使用 cpu 的份额 512
+docker run -itd --name docker10 --cpuset-cpus 0,1 --cpu-shares 1024 centos /bin/bash
+```
+
+可以结合`stress`脚本相关命令使用
+
+**docker 容器控制内存**
+
+Docker 提供参数-m, --memory=""限制容器的内存使用量。
+
+```sh
+ #允许容器使用的内存上限为 128M：
+ docker run -it -m 128m centos
+```
+
+### 3.网络模式
+
+docker run 创建 docker 容器时，可以用--net 选项指定容器的网络模式，Docker 有以下 4 种网络模式：
+
+```
+ bridge 模式：使--net =bridge 指定，默认设置； 
+ host 模式：使--net =host 指定； 共享主机网络
+ none 模式：使--net =none 指定； 
+ container 模式：使用--net =container:NAME orID 指定
+```
+
+### 4.停止容器
 
 ```
 docker stop 容器名/容器ID
@@ -131,7 +165,7 @@ docker stop 容器名/容器ID
 
 > 停止所有的容器: docker stop $(docker ps -aq)
 
-### 4.删除容器
+### 5.删除容器
 
 ````
 #删除一个容器
@@ -145,7 +179,7 @@ docker rm $(docker ps -a -q -f status=exited)
 
 ````
 
-### 5.进入容器
+### 6.进入容器
 
 ````
 docker attach 容器ID/容器名
@@ -153,13 +187,13 @@ docker attach 容器ID/容器名
 docker exec -it 容器id  /bin/bash
 ````
 
-### 6.查看容器相关的日志
+### 7.查看容器相关的日志
 
 ```
 docker logs 容器名/id   排错
 ```
 
-### 7.容器与服务器之间拷贝
+### 8.容器与服务器之间拷贝
 
 ```
 #把容器指定位置的东西复制出来 
@@ -168,7 +202,7 @@ docker cp 5eff66eec7e1:/etc/nginx/nginx.conf  /data/conf/nginx.conf
 docker cp  /data/conf/nginx.conf  5eff66eec7e1:/etc/nginx/nginx.conf
 ```
 
-### 8.怎么将正在运行的容器做成镜像
+### 9.怎么将正在运行的容器做成镜像
 
 ```
 # 将容器打包成镜像的命令，:TAG可有可无
@@ -176,4 +210,4 @@ docker commit -m="commit信息" -a="作者名" 容器ID 你的镜像名:TAG
 docker commit -m="rabbitmq3.8" -a="16074yang" 51be02bab1bc 16074yang/rabbitmq:v3.8
 ```
 
-![](../../pic/docker_rabbitmq_images.png)
+![](../../../pic/docker_rabbitmq_images.png)

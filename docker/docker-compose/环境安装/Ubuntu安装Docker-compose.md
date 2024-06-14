@@ -53,7 +53,7 @@ curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compo
 
 最后查看版本
 
-![](../../pic/docker_compose_install.png)
+![](../../../pic/docker_compose_install.png)
 
 报错解决
 

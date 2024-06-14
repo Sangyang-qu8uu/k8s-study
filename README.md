@@ -1,18 +1,39 @@
-# k8s-study以及运维相关学习
+# k8s以及运维相关学习
 
-## 1.项目目的
+## 1.目的
 
 旨在平时工作之余的时间自我的一个k8s运维方面知识总结，以及小技巧的总结
 
-## 2.文件夹大致内容
+## 2.目录结构
 
-```
-CiCd工具，主要是关于Jenkins，Gitlab，sanorqb集成流水化项目，以及对于代码进行质量检查
-Docker相关学习,包括docker安装，入门命令，Dockerfile,Docker-compose编写
-K8s,主要是安装，多个可视化工具，以及组件
-linux，目前是常用的命令，我记性不太好，不想重复的百度
-nginx,单独拎出来我觉得这个学习的地方很多
-其他,主要是生活小技巧
-```
+- ci-cd
 
-## 3.目前只写到这，后续再完善补充
+  gitlab，jenkins脚本
+
+- docker
+
+  docker,docker-compose安装，以及中间件脚本
+
+- harbor
+
+  私有仓库harbor安装与使用
+
+- k8s
+
+  k8s安装，可视化工具，组件等
+
+- linux
+
+  linux命令以及系统等操作
+
+- nginx
+
+  nginx.conf配置文件，后期打算研究里参数
+
+- 其他
+
+  windows相关
+
+- pic
+
+  md文档中引用得图片

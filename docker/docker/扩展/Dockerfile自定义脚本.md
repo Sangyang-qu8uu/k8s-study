@@ -8,7 +8,7 @@
 
 ## 项目准备：[若依单体项目](https://gitee.com/y_project/RuoYi)
 
-![](../../pic/ruoyi-standalone.png)
+![](../../../pic/ruoyi-standalone.png)
 
 分析得到需要挂载的配置文件有 `application.yml` 以及 `application-druid.yml`
 
@@ -343,13 +343,13 @@ exit 0
 
 最终实现自动生成配置文件，并且跟挂载的路径保持一致
 
-![](../../pic/ruoyi-standalone-projectconfpath.png)
+![](../../../pic/ruoyi-standalone-projectconfpath.png)
 
 
 
 
 
-![](../../pic/ruoyi-standalone-project.png)
+![](../../../pic/ruoyi-standalone-project.png)
 
 ## 查阅博客以及相关文档：
 
