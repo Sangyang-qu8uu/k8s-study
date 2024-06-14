@@ -95,4 +95,14 @@ zip -r /path/to/output/example_folder.zip /path/to/input/example_folder
 echo "127.0.0.1 9b63314f-8bef-4eda-997b-70b996049626" | sudo tee -a /etc/hosts
 
 ```
+13.查看硬盘大小 
 
+```shell
+递归查看目录及其子目录的大小
+使用 du 命令来递归地查看特定目录及其子目录的大小。常用选项如下：
+
+-h: 以人类可读的格式（如K、M、G）显示大小
+-s: 显示总计
+--max-depth=N: 限制显示的目录深度
+du -h --max-depth=1 /path/to/directory
+```
