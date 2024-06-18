@@ -1,0 +1,1 @@
+Get-ChildItem -Filter "*【海量免费it资源：92ydl.com】*.mp4" | Rename-Item -NewName {$_.Name -replace "【海量免费it资源：92ydl.com】", ""}
