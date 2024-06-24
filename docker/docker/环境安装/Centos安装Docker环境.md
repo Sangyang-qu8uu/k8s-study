@@ -56,7 +56,10 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
-
+补充：镜像地址无法使用情况，`registry-mirrors` 替换下面地址
+```
+https://docker.m.daocloud.io
+```
 
 
 
