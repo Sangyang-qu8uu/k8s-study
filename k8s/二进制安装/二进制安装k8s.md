@@ -625,7 +625,7 @@ etcd-key.pem etcd.pem
 [root@master1 work]#  cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes etcd-csr.json | cfssljson -bare etcd
 ```
 
-![](../../pic/etcd自签证书.jpg)
+
 
 ### 4.6部署 etcd 集群
 
@@ -780,12 +780,12 @@ ETCD_INITIAL_CLUSTER_STATE="new"
 ### 4.10查看 etcd 集群
 
 ```bash
-[root@xianchaomaster1 work]# ETCDCTL_API=3
-[root@xianchaomaster1 ~]# /usr/local/bin/etcdctl --write-out=table --cacert=/etc/etcd/ssl/ca.pem --cert=/etc/etcd/ssl/etcd.pem --key=/etc/etcd/ssl/etcd-key.pem --endpoints=https://192.168.89.135:2379,https://192.168.89.136:2379,https://192.168.89.137:2379 endpoint health
+[root@master1 work]# ETCDCTL_API=3
+[root@master1 ~]# /usr/local/bin/etcdctl --write-out=table --cacert=/etc/etcd/ssl/ca.pem --cert=/etc/etcd/ssl/etcd.pem --key=/etc/etcd/ssl/etcd-key.pem --endpoints=https://192.168.89.135:2379,https://192.168.89.136:2379,https://192.168.89.137:2379 endpoint health
 
 ```
 
-![](../../pic/etcd-health.jpg)
+![](C:\project\k8s-study\pic\etcd-health.jpg)
 
 ## 5安装 kubernetes 组件
 
@@ -936,7 +936,7 @@ EOF
 [root@master1 work]# cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-apiserver-csr.json | cfssljson -bare kube-apiserver
 ```
 
-![](../../pic/apiserver.jpg)
+
 
 ### 5.4创建 api-server 的配置文件，替换成自己的 ip
 
@@ -1321,7 +1321,7 @@ users: null
 ### 5.13授权 kubernetes 证书访问 kubelet api 权限
 
 ```sh
-[root@master1 work]# kubectl create clusterrolebinding kube-apiserver:kubelet-apis --clusterrole=system:kubelet-api-admin --user kubernetes
+[root@master1 work]# kubectl create clusterrolebinding kube-apiserver:kubelet-apis --clusterrole=system:kubelet-api-admin --user kubernetes --kubeconfig=/etc/kubernetes/kube.config
 ```
 
 
@@ -1346,7 +1346,7 @@ users: null
 ```sh
 #查询clusterinfo信息
 [root@master1 work]# kubectl cluster-info
-Kubernetes control plane is running at https://192.168.40.180:6443
+Kubernetes control plane is running at https://192.168.89.135:6443
 #查询组件状态
 [root@master1 work]# kubectl get componentstatuses
 Warning: v1 ComponentStatus is deprecated in v1.19+
@@ -1434,84 +1434,79 @@ system:kube-controller-manager 赋予 kube-controller-manager 工作所需的权
 [root@master1 work]# kubectl config use-context system:kube-controller-manager --kubeconfig=kube-controller-manager.kubeconfig
 
 #创建配置文件 kube-controller-manager.conf
-[root@master1 work]# vim kube-controller-manager.conf 
-KUBE_CONTROLLER_MANAGER_OPTS="--port=0 \
- --secure-port=10252 \
- --bind-address=127.0.0.1 \
- --kubeconfig=/etc/kubernetes/kube-controller-manager.kubeconfig \
- --service-cluster-ip-range=10.255.0.0/16 \
- --cluster-name=kubernetes \
- --cluster-signing-cert-file=/etc/kubernetes/ssl/ca.pem \
- --cluster-signing-key-file=/etc/kubernetes/ssl/ca-key.pem \
- --allocate-node-cidrs=true \
- --cluster-cidr=10.0.0.0/16 \
- --experimental-cluster-signing-duration=87600h \
- --root-ca-file=/etc/kubernetes/ssl/ca.pem \
- --service-account-private-key-file=/etc/kubernetes/ssl/ca-key.pem \
- --leader-elect=true \
- --feature-gates=RotateKubeletServerCertificate=true \
- --controllers=*,bootstrapsigner,tokencleaner \
- --horizontal-pod-autoscaler-use-rest-clients=true \
- --horizontal-pod-autoscaler-sync-period=10s \
- --tls-cert-file=/etc/kubernetes/ssl/kube-controller-manager.pem \
- --tls-private-key-file=/etc/kubernetes/ssl/kube-controller-manager-key.pem \
- --use-service-account-credentials=true \
- --alsologtostderr=true \
- --logtostderr=false \
---log-dir=/var/log/kubernetes \
- --v=2"
+[root@master1 work]# cat > kube-controller-manager.conf << "EOF"
+KUBE_CONTROLLER_MANAGER_OPTS=" \
+  --secure-port=10257 \
+  --bind-address=127.0.0.1 \
+  --kubeconfig=/etc/kubernetes/kube-controller-manager.kubeconfig \
+  --service-cluster-ip-range=10.255.0.0/16 \
+  --cluster-name=kubernetes \
+  --cluster-signing-cert-file=/etc/kubernetes/ssl/ca.pem \
+  --cluster-signing-key-file=/etc/kubernetes/ssl/ca-key.pem \
+  --allocate-node-cidrs=true \
+  --cluster-cidr=10.0.0.0/16 \
+  --root-ca-file=/etc/kubernetes/ssl/ca.pem \
+  --service-account-private-key-file=/etc/kubernetes/ssl/ca-key.pem \
+  --leader-elect=true \
+  --feature-gates=RotateKubeletServerCertificate=true \
+  --controllers=*,bootstrapsigner,tokencleaner \
+  --horizontal-pod-autoscaler-sync-period=10s \
+  --tls-cert-file=/etc/kubernetes/ssl/kube-controller-manager.pem \
+  --tls-private-key-file=/etc/kubernetes/ssl/kube-controller-manager-key.pem \
+  --use-service-account-credentials=true \
+  --alsologtostderr=true \
+  --logtostderr=false \
+  --log-dir=/var/log/kubernetes \
+  --v=2"
+EOF
+
  
 #创建启动文件
-[root@xianchaomaster1 work]# vim kube-controller-manager.service
+[root@master1 work]# cat > /usr/lib/systemd/system/kube-controller-manager.service << "EOF"
 [Unit]
 Description=Kubernetes Controller Manager
 Documentation=https://github.com/kubernetes/kubernetes
+ 
 [Service]
 EnvironmentFile=-/etc/kubernetes/kube-controller-manager.conf
 ExecStart=/usr/local/bin/kube-controller-manager $KUBE_CONTROLLER_MANAGER_OPTS
 Restart=on-failure
 RestartSec=5
+ 
 [Install]
 WantedBy=multi-user.target
+EOF
 ```
 
 ### 5.16启动服务
 
 ```sh
-#备份配置文件
 [root@master1 work]# cp kube-controller-manager*.pem /etc/kubernetes/ssl/
 [root@master1 work]# cp kube-controller-manager.kubeconfig /etc/kubernetes/
 [root@master1 work]# cp kube-controller-manager.conf /etc/kubernetes/
-[root@master1 work]# cp kube-controller-manager.service /usr/lib/systemd/system/
-
-#同步ssl
-[root@master1 work]# rsync -vaz kube-controller-manager*.pem master2:/etc/kubernetes/ssl/
-[root@master1 work]# rsync -vaz kube-controller-manager*.pem master3:/etc/kubernetes/ssl/
-
-#同步配置文件
-[root@master1 work]# rsync -vaz kube-controller-manager.kubeconfig kube-controller-manager.conf master2:/etc/kubernetes/
-[root@master1 work]# rsync -vaz kube-controller-manager.kubeconfig kube-controller-manager.conf master3:/etc/kubernetes/
-
-#同步服务
-[root@master1 work]# rsync -vaz kube-controller-manager.service master2:/usr/lib/systemd/system/
-[root@master1 work]# rsync -vaz kube-controller-manager.service master3:/usr/lib/systemd/system/
+ 
+[root@master1 work]# scp  kube-controller-manager*.pem master2:/etc/kubernetes/ssl/
+[root@master1 work]# scp  kube-controller-manager*.pem master3:/etc/kubernetes/ssl/
+ 
+[root@master1 work]# scp  kube-controller-manager.kubeconfig kube-controller-manager.conf master2:/etc/kubernetes/
+[root@master1 work]# scp  kube-controller-manager.kubeconfig kube-controller-manager.conf master3:/etc/kubernetes/
+ 
+[root@master1 work]# scp  /usr/lib/systemd/system/kube-controller-manager.service master2:/usr/lib/systemd/system/
+[root@master1 work]# scp  /usr/lib/systemd/system/kube-controller-manager.service master3:/usr/lib/systemd/system/
 
 #加载并且启动
-[root@master1 work]# systemctl daemon-reload 
-[root@master1 work]# systemctl enable kube-controller-manager
-[root@master1 work]# systemctl start kube-controller-manager
-[root@master1 work]# systemctl status kube-controller-manager
- Active: active (running) since 
-[root@master2]# systemctl daemon-reload 
-[root@master2]# systemctl enable kube-controller-manager
-[root@master2]# systemctl start kube-controller-manager
-[root@master2]# systemctl status kube-controller-manager
- Active: active (running) since 
-[root@master3]# systemctl daemon-reload 
-[root@master3]# systemctl enable kube-controller-manager
-[root@master3]# systemctl start kube-controller-manager
-[root@master3]# systemctl status kube-controller-manager
- Active: active (running) since
+systemctl daemon-reload 
+systemctl enable --now kube-controller-manager
+systemctl status kube-controller-manager
+ 
+[root@master1 work]# kubectl get componentstatuses 
+Warning: v1 ComponentStatus is deprecated in v1.19+
+NAME                 STATUS    MESSAGE             ERROR
+scheduler            Healthy   ok                  
+controller-manager   Healthy   ok                  
+etcd-1               Healthy   {"health":"true"}   
+etcd-2               Healthy   {"health":"true"}   
+etcd-0               Healthy   {"health":"true"} 
 ```
 
 ### 5.17部署 kube-scheduler 组件
@@ -1683,7 +1678,7 @@ address 替换为自己 node1 的 IP 地址。
             "cacheUnauthorizedTTL": "30s"
         }
     },
-    "address": "192.168.89.138",
+    "address": "192.168.89.135",
     "port": 10250,
     "readOnlyPort": 10255,
     "cgroupDriver": "systemd",
@@ -1817,7 +1812,7 @@ node1   NotReady   <none>   75s   v1.20.7
 [root@master1 work]# kubectl config set-credentials kube-proxy --client-certificate=kube-proxy.pem --client-key=kube-proxy-key.pem --embed-certs=true --kubeconfig=kube-proxy.kubeconfig
 
 [root@master1 work]# kubectl config set-context default --cluster=kubernetes --user=kube-proxy --kubeconfig=kube-proxy.kubeconfig
-[root@xianchaomaster1 work]# kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig
+[root@master1 work]# kubectl config use-context default --kubeconfig=kube-proxy.kubeconfig
 
 #创建 kube-proxy 配置文件
 [root@master1 work]# vim kube-proxy.yaml
@@ -1911,7 +1906,7 @@ node1   Ready    <none>   12m   v1.20.7
 **测试 k8s 集群部署 tomcat 服务**
 
 ```sh
-#把 tomcat.tar.gz 和 busybox-1-28.tar.gz 上传到 xianchaonode1，手动解压
+#把 tomcat.tar.gz 和 busybox-1-28.tar.gz 上传到 node1，手动解压
 [root@node1 ~]# docker load -i tomcat.tar.gz
 [root@node1 ~]# docker load -i busybox-1-28.tar.gz 
 
